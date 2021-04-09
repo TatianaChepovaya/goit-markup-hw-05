@@ -60,7 +60,7 @@
             Эффективные решения <br />
             для вашего бизнеса
           </h1>
-          <button class="banner-button" type="button">Заказать услугу</button>
+          <button class="banner-button" type="button" data-modal-open>Заказать услугу</button>
         </div>
       </section>
 
@@ -119,13 +119,18 @@
           <h2 class="title">Чем мы занимаемся</h2>
           <ul class="list service-list">
             <li class="service-item">
-              <img src="./images/box_1.jpg" alt="Проект под ключ" width="370" />
+              <img class="img-servise" src="./images/box_1.jpg" alt="Десктопные приложения" width="370" />
+              <div class="bg-title"><p>Десктопные приложения</p></div>
             </li>
             <li class="service-item">
-              <img src="./images/box_2.jpg" alt="Адаптация" width="370" />
+              <img class="img-servise" src="./images/box_2.jpg" alt="Мобильные приложения" width="370" />
+              <div class="bg-title"><p>Мобильные приложения</p></div>
             </li>
             <li class="service-item">
-              <img src="./images/box_3.jpg" alt="Инновации" width="370" />
+              <img class="img-servise" src="./images/box_3.jpg" alt="Дизайнерские решения" width="370" />
+              <div class="bg-title">
+                <p>Дизайнерские решения</p>
+              </div>
             </li>
           </ul>
         </div>
@@ -382,5 +387,16 @@
         </div>
       </div>
     </footer>
+    <div class="backdrop is-hidden" data-modal>
+      <div class="modal">
+        <button class="btn-close" data-modal-close>
+          <svg class="icon" width="11" height="11">
+            <use href="./images/icon/icons.svg#icon-close"></use>
+          </svg>
+        </button>
+        <p class="modal-title">Оставьте свои данные, мы вам перезвоним</p>
+      </div>
+    </div>
+    <script src="./js/modal.js"></script>
   </body>
 </html>
