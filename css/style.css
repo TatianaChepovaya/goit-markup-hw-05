@@ -17,6 +17,8 @@ ul {
   --primary-line-height: 1.14;
   --primary--font-weight: 700;
   --secondary--font-weight: 500;
+  --transition-time: 250ms;
+  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -44,7 +46,6 @@ header {
 .list {
   list-style-type: none;
 }
-
 .logo {
   font-family: Raleway, sans-serif;
   font-weight: var(--primary--font-weight);
@@ -75,6 +76,9 @@ header {
 }
 .menu-item {
   margin-right: 50px;
+  transition-property: color;
+  transition-duration: var(--transition-time);
+  transition-timing-function: var(--timing-function);
 }
 .menu-item:last-child {
   margin-right: 0;
@@ -104,6 +108,11 @@ header .contact-list {
 .contact-item:first-child {
   margin-left: 0;
 }
+.icon {
+  transition-property: fill;
+  transition-duration: var(--transition-time);
+  transition-timing-function: var(--timing-function);
+}
 .contact-list .icon {
   fill: var(--main-text-color);
   margin-right: 10px;
@@ -129,6 +138,9 @@ header .contact-list {
   display: flex;
   align-items: center;
   color: var(--main-text-color);
+  transition-property: color;
+  transition-duration: var(--transition-time);
+  transition-timing-function: var(--timing-function);
 }
 .contact-link:hover,
 .contact-link:focus {
@@ -172,10 +184,12 @@ button {
   color: var(--main-light-color);
   background-color: var(--main-accent-color);
   margin-top: 30px;
-
   padding: 10px 32px;
   border-radius: 4px;
   border: none;
+  transition-property: background-color;
+  transition-duration: var(--transition-time);
+  transition-timing-function: var(--timing-function);
 }
 .banner-button:hover,
 .banner-button:focus {
@@ -280,6 +294,9 @@ button {
   height: 44px;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
+  transition-property: background-color;
+  transition-duration: var(--transition-time);
+  transition-timing-function: var(--timing-function);
 }
 .social-link:hover,
 .social-link:focus {
@@ -321,6 +338,9 @@ button {
   height: 90px;
   border: 1px solid #afb1b8;
   border-radius: 4px;
+  transition-property: border;
+  transition-duration: var(--transition-time);
+  transition-timing-function: var(--timing-function);
 }
 .clients-link:hover,
 .clients-link:focus {
@@ -380,6 +400,9 @@ footer .icon {
   margin-right: 8px;
   min-width: 73px;
   padding: 6px 22px;
+  transition-property: background-color, color, box-shadow;
+  transition-duration: var(--transition-time);
+  transition-timing-function: var(--timing-function);
 }
 .filter-button:hover,
 .filter-button:focus {
@@ -398,6 +421,9 @@ footer .icon {
   margin-left: 30px;
   margin-top: 30px;
   flex-basis: calc((100% - 3 * 30px) / 3);
+  transition-property: box-shadow;
+  transition-duration: var(--transition-time);
+  transition-timing-function: var(--timing-function);
 }
 .catalog-item:hover,
 .catalog-item:focus {
@@ -438,7 +464,7 @@ footer .icon {
 }
 .overlay {
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
   width: 100%;
   height: 100%;
@@ -447,17 +473,23 @@ footer .icon {
   color: var(--bg-light-color);
   background-color: rgba(33, 150, 243, 0.9);
   padding: 63px 24px;
-  opacity: 0;
+  transform: translateY(100%);
+  transition-property: opacity, transform;
+  transition-duration: var(--transition-time);
+  transition-timing-function: var(--timing-function);
 }
 
 .link-item:hover .overlay,
 .link-item:focus .overlay {
-  opacity: 1;
+  transform: translateY(0);
 }
 .is-hidden {
   visibility: inherit;
   opacity: 0;
   pointer-events: none;
+  transition-property: opacity;
+  transition-duration: var(--transition-time);
+  transition-timing-function: var(--timing-function);
 }
 .backdrop {
   position: fixed;
@@ -471,7 +503,7 @@ footer .icon {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: scale(1) translate(-50%, -50%);
   width: 528px;
   height: 581px;
   padding-left: 40px;
@@ -480,6 +512,7 @@ footer .icon {
   background-color: var(--bg-light-color);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+  transition-duration: var(--transition-time);
 }
 .btn-close {
   position: absolute;
@@ -500,6 +533,9 @@ footer .icon {
 .btn-close:hover .icon,
 .btn-close:focus .icon {
   fill: var(--main-accent-color);
+}
+.is-hidden .modal {
+  transform: scale(0);
 }
 .modal-title {
   font-weight: var(--primary--font-weight);
